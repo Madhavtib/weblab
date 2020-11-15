@@ -1,0 +1,54 @@
+<!DOCTYPE html">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+    function validateForm() {
+  	  var y=document.getElementById("pass1");
+  	  var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+  	  var x = document.forms["myform"]["userid"].value;
+  	  if (x.startsWith("FA")==false||x.length!=8) {
+  		document.getElementById("userdemo").innerHTML = "wrong facultyid";
+    	    return false;
+    	  }
+  	  else if(y.value.match(passw)) 
+  		  {
+  		  return true;
+  		  }
+  	  else{
+  		  document.getElementById("userdemo").innerHTML = "password must be 6 to 20 chars with atleast 1 num,1 upper and 1 lower";
+      	  return false;
+  	  } 
+  	}
+    </script>
+  </head>
+  <body>
+    <div class="center">
+      <div class="container">
+      <label id="userdemo" style="color:red"></label>
+        <div class="text">Faculty Login</div>
+        <form  name="myform" onsubmit="return validateForm() " action="login" method="post">
+          <div class="data">
+            <label>UserId</label>
+            <input type="text" name="userid"required>
+          </div>
+          <div class="data">
+            <label>Password</label>
+            <input type="password" name="password" id="pass1" required>
+          </div>
+          <div class="btn">
+            <div class="inner"></div>
+            <button type="submit">login</button>
+          </div>
+          <div class="signup-link">
+Not a member? <a href="facultyregistration.html">Signup now</a></div>
+        </form>
+      </div>
+    </div>
+
+  </body>
+
+</html>

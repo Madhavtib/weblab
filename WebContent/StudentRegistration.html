@@ -1,0 +1,68 @@
+<!DOCTYPE html ">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <script >
+    function validateForm() {
+    	  var y=document.getElementById("pass1");
+    	  var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    	  var x = document.forms["myform"]["uid"].value;
+    	  if (x.startsWith("RA")==false||x.length!=15) {
+    		document.getElementById("userdemo").innerHTML = "wrong username";
+      	    return false;
+      	  }
+    	  else if(y.value.match(passw)) 
+    		  {
+    		  return true;
+    		  }
+    	  else{
+    		  document.getElementById("userdemo").innerHTML = "wrong password format";
+        	  return false;
+    	  } 
+    	}
+    </script>
+  </head>
+  <body>
+    <div class="center">
+      <div class="container">
+      	<label id="userdemo" style="color:red"></label>
+        <div class="text">Student Registration</div>
+        <form action="sreg" name="myform" onsubmit="return validateForm()" method="post">
+          <div class="data">
+            <label>UserId</label>
+            <input type="text" name="uid"required>
+          </div>
+          <div class="data">
+            <label>Email</label>
+            <input type="email" name="email"required>
+          </div>
+          <div class="data">
+            <label>Name</label>
+            <input type="text" name="uname"required>
+          </div>
+          <div class="data">
+            <label>Department</label>
+            <input type="text" name="dept"required>
+          </div>
+          <div class="data">
+            <label>Year</label>
+            <input type="text" name="year"required>
+          </div>
+          <div class="data">
+            <label>Password</label>
+            <input type="password" name="pass" id="pass1" required>
+          </div>
+          <div class="btn">
+            <div class="inner"></div>
+            <button type="submit">Register</button>
+          </div>
+          <div class="signup-link">
+			Already a member? <a href="studentlogin.html">SignIn now</a></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

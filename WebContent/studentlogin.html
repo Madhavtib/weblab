@@ -1,0 +1,60 @@
+<!DOCTYPE html ">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script >
+    function myFunction(val) {	
+    	var s=document.getElementById("userdemo");
+    	var x = document.forms["myform"]["uname"].value;
+	  if (val.startsWith("RA")==false||x.length!=15) {
+	  		s.innerHTML = "wrong username";
+	  		s.style.color = "red";
+	    return false;
+	  }	
+    }
+    function validateForm() {
+    	  var y=document.getElementById("pass1");
+    	  var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    	  var s=document.getElementById("userdemo");
+    	  if(y.value.match(passw)) 
+    		  {
+    		  return true;
+    		  }
+    	  else{
+  	  		s.innerHTML = "password must be 6 to 20 chars with atleast 1 num,1 upper and 1 lower";
+  	  		s.style.color = "red";
+    	
+        	  return false;
+    	  } 
+    	}
+    </script>
+  </head>
+  <body>
+    <div class="center">
+      <div class="container">
+      	<label id="userdemo"></label>
+        <div class="text">Student Login</div>
+        <form name="myform" onsubmit="return validateForm()" action="slogin" method="post">
+          <div class="data">
+            <label>UserId</label>
+            <input type="text" value="" onchange="myFunction(this.value)" name="uname" required >
+            
+          </div>
+          <div class="data">
+            <label>Password</label>
+            <input type="password" name="pass" id="pass1" required>
+          </div>
+          <div class="btn">
+            <div class="inner"></div>
+            <button type="submit">login</button>
+          </div>
+          <div class="signup-link">
+		Not a member? <a href="StudentRegistration.html">Signup now</a></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
